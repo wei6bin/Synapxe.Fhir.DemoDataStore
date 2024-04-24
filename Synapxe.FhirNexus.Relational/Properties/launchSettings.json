@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Synapxe.FhirNexus.Relational": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:7135",
+      "launchUrl": "swagger"
+    }
+  }
+}

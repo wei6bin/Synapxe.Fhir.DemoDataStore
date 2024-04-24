@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ProjectGuid>{5DD08226-9A41-4D1A-98CB-180E4B9876C3}</ProjectGuid>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="Ihis.FhirEngine.WebApi.Extensions.Swashbuckle" Version="4.0.0" />
+        <PackageReference Include="Ihis.FhirEngine.WebApi.R5" Version="4.0.0" />
+        <PackageReference Include="Ihis.FhirEngine.Data.SqlServer" Version="4.0.0" />
+        <PackageReference Include="Ihis.FhirEngine.Data.SqlServer.Extensions.Migration" Version="4.0.0" />
+        
+        <ProjectReference Include="..\Synapxe.FhirNexus.Model\Synapxe.FhirNexus.Model.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="Conformance/*.StructureDefinition.json" />
+    </ItemGroup>
+    
+</Project>

@@ -1,0 +1,28 @@
+{
+  "EnableHandlerAutoRegistration": true,
+  "PublicConformanceResources": true,
+  "UseFhirController": false,
+  "SystemPlugins": {
+    "Metadata": "Conformance",
+    "Merge": true,
+    "CustomResources": ["Synapxe.FhirNexus.Model.PatientHealthRecord"],
+    "Authentication": "Synapxe.FhirNexus.Relational.Security.HeadersAuthenticationHandler"
+  },
+  "Handlers": {
+    "Repository": {
+      "FhirDataStore<@Relational>": {
+        "ContextType": "Synapxe.FhirNexus.Relational.Data.FhirEntityDbContext",
+        "UseSqlRelationalModels": {
+          "AutoCreateTables": false
+        },
+        "UseAutoMapperDataMapper": true,
+        "IncludeStandardSearchParams": true,
+        "ConnectionString": "Local",
+        "AllowedInteractions": [ "Create", "Read", "Vread", "Update", "Patch", "Delete", "SearchType" ],
+        "AcceptedTypes": [
+          "PatientHealthRecord"
+        ]
+      }
+    }
+  }
+}

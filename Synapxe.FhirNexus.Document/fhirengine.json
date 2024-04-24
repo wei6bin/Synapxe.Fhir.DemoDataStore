@@ -1,0 +1,24 @@
+{
+  "EnableHandlerAutoRegistration": true,
+  "PublicConformanceResources": true,
+  "UseFhirController": false,
+  "SystemPlugins": {
+    "Metadata": "Conformance",
+    "Merge": true,
+    "Authentication": "Synapxe.FhirNexus.Document.Security.HeadersAuthenticationHandler"
+  },
+  "Handlers": {
+    "Repository": {
+      "FhirDataStore<@NoSql>": {
+        "UseSqlDocument": {
+          "EnableRetryOnFailure": true
+        },
+        "IncludeStandardSearchParams": true,
+        "ConnectionString": "Local",
+        "AcceptedTypes": [
+          
+        ]
+      }
+    }
+  }
+}

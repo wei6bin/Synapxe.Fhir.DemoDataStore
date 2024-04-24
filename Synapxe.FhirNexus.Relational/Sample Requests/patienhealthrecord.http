@@ -1,0 +1,102 @@
+@baseUrl=https://localhost:7135
+@applicationId=test-app
+
+### Create Request:
+
+POST {{baseUrl}}/PatientHealthRecord
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "PatientHealthRecord",
+  "status": true,
+  "patient": {
+    "reference": "Patient/xcda",
+    "display": "Henry Levin the 7th"
+  },
+  "lifestyle": {
+    "smokingStatus": "Former smoker",
+    "alcoholConsumption": "yes",
+    "exerciseFrequency": "once a week"
+  },
+  "familyHistory": [
+    {
+      "condition": "Diabetes Mellitus",
+      "relationship": "Grandfather"
+    },
+    {
+      "condition": "Hypertension",
+      "relationship": "Grandmother"
+    }
+  ]
+}
+
+### Read Request:
+@id = 926926A1829549FDAEF2F3B313A620C3
+GET {{baseUrl}}/PatientHealthRecord/{{id}}
+X-Ihis-SourceApplication: {{applicationId}}
+
+
+### Update Request:
+POST {{baseUrl}}/PatientHealthRecord/{{id}}
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "PatientHealthRecord",
+  "id": "926926A1829549FDAEF2F3B313A620C3",
+  "status": true,
+  "patient": {
+    "reference": "Patient/xcda",
+    "display": "Henry Levin the 7th"
+  },
+  "lifestyle": {
+    "smokingStatus": "Former smoker",
+    "alcoholConsumption": "yes",
+    "exerciseFrequency": "twice a week"
+  },
+  "familyHistory": [
+    {
+      "condition": "Diabetes Mellitus",
+      "relationship": "Grandfather"
+    },
+    {
+      "condition": "Hypertension",
+      "relationship": "Grandmother"
+    }
+  ]
+}
+
+
+### Patch Request:
+PATCH {{baseUrl}}/PatientHealthRecord/{{id}}
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "operation",
+      "part": [
+        {
+          "name": "type",
+          "valueCode": "replace"
+        },
+        {
+          "name": "path",
+          "valueString": "PatientHealthRecord.status"
+        },
+        {
+          "name": "value",
+          "valueBoolean": false
+        }
+      ]
+    }
+  ]
+}
+
+### Delete Request:
+
+DELETE {{baseUrl}}/PatientHealthRecord/{{id}}
+X-Ihis-SourceApplication: {{applicationId}}
